@@ -18,7 +18,11 @@ For the throat dataset, the images were resized to 272x480. The others are resiz
 
 For $\mathcal{S}_\mathrm{blur}$ images, we use three blur levels of 9, 13, and 17 corresponding to low (L), medium (M), and high (H), respectively.  
 
-For $\mathcal{S}_\mathrm{deform+blur}$ images, we use three $\alpha$ levels of 15, 25, and 35 corresponding to low (L), medium (M), and high (H), respectively. 
+For $\mathcal{S}_\mathrm{deform+blur}$ images, we use three $\alpha$ levels of 15, 25, and 35 corresponding to low (L), medium (M), and high (H), respectively.  
+
+Below is the step-by-step of obtaining images in our experiment
+
+![Figure 4](Results/Fig_4.png)
 
 ## **Results**
 In this report, we'll show all the results at the distortion level $\lbrack\mathrm{M_{def}}$, $\mathrm{H_{blur}}\rbrack$ (i.e., $\alpha=25$, $\mathrm{blur} = 17$).
