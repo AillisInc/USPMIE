@@ -6,6 +6,7 @@ For more experimental results of LaSSIM, please refer to this [page](LaSSIM).
 The code will be released upon acceptance.
 
 ## The unsupervised medical image enhancement method – LaMEGAN
+For the results of LaMEGAN, please refer to this [page](LaMEGAN).  
 The code for LaMEGAN will be released upon acceptance
 ## Acknowledgments
 Our code is inspired by [pytorch-CycleGAN](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix).
