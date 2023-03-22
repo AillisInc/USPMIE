@@ -5,7 +5,7 @@ The LaSSIM is an objective evaluation of structural preservation for medical ima
 ## **Experiment Setups**
 Let $f(x, x')$ be an arbitrary measure that evaluates the similarity between images $x$ and $x'$. In addition, let $s\_\mathrm{GT} \in \mathcal{S}\_{\mathrm{GT}}$ be a clean ground-truth image and its two modified versions: one with highly blurred images $s\_\mathrm{blur} \in \mathcal{S}\_{\mathrm{blur}}$ and one with deformed structure and highly blurred images $s\_\mathrm{deform+blur} \in \mathcal{S}\_{\mathrm{deform+blur}}$.  
 If $f$ is the desired metric that can capture structural changes, then $f(s\_\mathrm{GT},s\_\mathrm{blur})>f(s\_\mathrm{GT},s\_\mathrm{deform+blur})$ should hold.  
-In this experiment, both the SSIM and LaSSIM (with the extracted residual level set to l = 3) metrics were validated as $f$.  
+In this experiment, both the SSIM and LaSSIM (with the extracted residual level set to $l = 3$) metrics were validated as $f$.  
 In addition, the distribution difference of $\mathbb{F}(\mathcal{S}\_\mathrm{GT}, \mathcal{S}\_\mathrm{blur})$ and $\mathbb{F}(\mathcal{S}\_\mathrm{GT}, \mathcal{S}\_\mathrm{deform+blur})$ on 1,000 images for both SSIM and LaSSIM was evaluated using the Jensen-Shannon divergence.  
 
 ### **Images acquisition**
