@@ -21,7 +21,7 @@ For $\mathcal{S}_\mathrm{blur}$ images, we use three blur levels of 9, 13, and 1
 For $\mathcal{S}_\mathrm{deform+blur}$ images, we use three $\alpha$ levels of 15, 25, and 35 corresponding to low (L), medium (M), and high (H), respectively. 
 
 ## **Results**
-In this report, we'll show all the results at the distortion level $\lbrack\mathrm{M_{def}}$, $\mathrm{H_{blur}}\rbrack$.
+In this report, we'll show all the results at the distortion level $\lbrack\mathrm{M_{def}}$, $\mathrm{H_{blur}}\rbrack$ (i.e., $\alpha=25$, $\mathrm{blur} = 17$).
 
 ![Result image](Results/aillis_SSIM_vs_LaSSIM.png)
 
