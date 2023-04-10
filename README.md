@@ -17,6 +17,7 @@ The code for LaMEGAN will be released upon acceptance.
 @article{cap2023uspmie,
     title = A Practical Framework for Unsupervised Structure Preservation Medical Image Enhancement},
     author = {Quan Huu Cap and Atsushi Fukuda and and Hitoshi Iyatomi},
+    journal = {arXiv preprint arXiv:2304.01864},
     year = {2023},
     doi = {10.48550/arXiv.2304.01864},
     url = {https://arxiv.org/abs/2304.01864}
