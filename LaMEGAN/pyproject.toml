@@ -1,0 +1,27 @@
+[project]
+name = "lamegan"
+version = "0.1.0"
+description = "Laplacian medical image enhancement (LaMEGAN)"
+authors = [
+    {name = "Quan Cap"}
+]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "kornia (>=0.8.0,<0.9.0)",
+    "numpy (<2)",
+    "pillow (>=11.1.0,<12.0.0)",
+    "torchvision (>=0.21.0,<0.22.0)",
+    "dominate (>=2.9.1,<3.0.0)",
+    "opencv-python (>=4.11.0.86,<5.0.0.0)",
+    "scikit-image (>=0.20.0,<0.21.0)"
+]
+
+
+[tool.poetry]
+package-mode = false
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
