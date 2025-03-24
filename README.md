@@ -1,4 +1,4 @@
-# Officical implementation of the paper **A Practical Framework for Unsupervised Structure Preservation Medical Image Enhancement**
+# Officical implementation of the paper: **A Practical Framework for Unsupervised Structure Preservation Medical Image Enhancement**
 **Authors**: Quan Huu Cap, Atsushi Fukuda, Hitoshi Iyatomi  
 **Paper**: https://arxiv.org/abs/2304.01864
 
@@ -17,9 +17,9 @@ The code for LaMEGAN will be released upon acceptance.
 @article{cap2023uspmie,
     title = A Practical Framework for Unsupervised Structure Preservation Medical Image Enhancement},
     author = {Quan Huu Cap and Atsushi Fukuda and and Hitoshi Iyatomi},
-    journal = {arXiv preprint arXiv:2304.01864},
-    year = {2023},
-    doi = {10.48550/arXiv.2304.01864},
+    journal = {Biomedical Signal Processing and Control},
+    year = {2025},
+    doi = {10.1016/j.bspc.2024.106918},
     url = {https://arxiv.org/abs/2304.01864}
 }
 ```

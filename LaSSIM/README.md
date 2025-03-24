@@ -2,6 +2,39 @@
 
 The LaSSIM is an objective evaluation of structural preservation for medical image enhancement tasks that do not require reference images. LaSSIM calculates the SSIM after applying the Laplacian Pyramid (LP) process on both input and output images. The key idea behind LaSSIM is the ability of the LP process to effectively express the global structure of the images under conditions of high image degradation. The figure below shows an example of extracting different LP levels from a clean throat image and its blurred version. In the pixel space (level 0), the SSIM is low due to its vulnerability to blurriness. However, at a certain level of LP space (i.e., level 3), the SSIM between the two images are almost identical.
 
+## How to utilize LaSSIM
+Follow the below code block. 
+The difference between SSIM scores should be much smaller compared to LaSSIM.
+```python
+from lassim import LaSSIM, SSIM
+
+# read images
+img_ori_path = "resources/image_original.png"
+img_blur_path = "resources/image_blur.png"
+img_elt_blur_path = "resources/image_elastic_blur.png"
+
+# original image
+img_ori = cv2.imread(img_ori_path, -1)
+# + blur
+img_blur = cv2.imread(img_blur_path, -1)
+# + elastic + blur
+img_elt_blur = cv2.imread(img_elt_blur_path, -1)
+
+# SSIM in Laplace Pyramid space
+lassim_blur_ori = LaSSIM(img_inp=img_blur, img_ref=img_ori)
+lassim_elt_blur_ori = LaSSIM(img_inp=img_elt_blur, img_ref=img_ori)
+
+print(f"LaSSIM (blur vs original): {lassim_blur_ori}")
+print(f"LaSSIM (elastic+blur vs original): {lassim_elt_blur_ori}\n")
+
+# SSIM in pixel space
+ssim_blur_ori = SSIM(img_inp=img_blur, img_ref=img_ori)
+ssim_elt_blur_ori = SSIM(img_inp=img_elt_blur, img_ref=img_ori)
+
+print(f"SSIM (blur vs original): {ssim_blur_ori}")
+print(f"SSIM (elastic+blur vs original): {ssim_elt_blur_ori}")
+```
+
 ## **Experiment Setups**
 Let $f(I, I')$ be an arbitrary measure that evaluates the similarity between images $I$ and $I'$. In addition, let $s\_\mathrm{GT} \in \mathcal{S}\_{\mathrm{GT}}$ be a clean ground-truth image and its two modified versions: one with highly blurred images $s\_\mathrm{blur} \in \mathcal{S}\_{\mathrm{blur}}$ and one with deformed structure and highly blurred images $s\_\mathrm{deform+blur} \in \mathcal{S}\_{\mathrm{deform+blur}}$.  
 If $f$ is the desired metric that can capture structural changes, then $f(s\_\mathrm{GT},s\_\mathrm{blur})>f(s\_\mathrm{GT},s\_\mathrm{deform+blur})$ should hold.  
@@ -36,36 +69,3 @@ In this report, we'll show all the results at the distortion level $\lbrack\math
 ![Result image](resources/isic_SSIM_vs_LaSSIM.png)
 
 ![Result image](resources/camelyon_SSIM_vs_LaSSIM.png)
-
-## How to utilize LaSSIM
-Follow the below code block. 
-The difference between SSIM scores should be much smaller compared to LaSSIM.
-```python
-from lassim import LaSSIM, SSIM
-
-# read images
-img_ori_path = "resources/image_original.png"
-img_blur_path = "resources/image_blur.png"
-img_elt_blur_path = "resources/image_elastic_blur.png"
-
-# original image
-img_ori = cv2.imread(img_ori_path, -1)
-# + blur
-img_blur = cv2.imread(img_blur_path, -1)
-# + elastic + blur
-img_elt_blur = cv2.imread(img_elt_blur_path, -1)
-
-# SSIM in Laplace Pyramid space
-lassim_blur_ori = LaSSIM(img_inp=img_blur, img_ref=img_ori)
-lassim_elt_blur_ori = LaSSIM(img_inp=img_elt_blur, img_ref=img_ori)
-
-print(f"LaSSIM (blur vs original): {lassim_blur_ori}")
-print(f"LaSSIM (elastic+blur vs original): {lassim_elt_blur_ori}\n")
-
-# SSIM in pixel space
-ssim_blur_ori = SSIM(img_inp=img_blur, img_ref=img_ori)
-ssim_elt_blur_ori = SSIM(img_inp=img_elt_blur, img_ref=img_ori)
-
-print(f"SSIM (blur vs original): {ssim_blur_ori}")
-print(f"SSIM (elastic+blur vs original): {ssim_elt_blur_ori}")
-```
