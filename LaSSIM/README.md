@@ -22,17 +22,50 @@ For $\mathcal{S}_\mathrm{deform+blur}$ images, we use three $\alpha$ levels of 1
 
 Below is the step-by-step of obtaining images in our experiment
 
-![Figure 4](Results/Fig_4.png)
+![Figure 4](resources/Fig_4.png)
 
 ## **Results**
 In this report, we'll show all the results at the distortion level $\lbrack\mathrm{M_{def}}$, $\mathrm{H_{blur}}\rbrack$ (i.e., $\alpha=25$, $\mathrm{blur} = 17$).
 
-![Result image](Results/aillis_SSIM_vs_LaSSIM.png)
+![Result image](resources/aillis_SSIM_vs_LaSSIM.png)
 
-![Result image](Results/imagenet_SSIM_vs_LaSSIM.png)
+![Result image](resources/imagenet_SSIM_vs_LaSSIM.png)
 
-![Result image](Results/chestxray_SSIM_vs_LaSSIM.png)
+![Result image](resources/chestxray_SSIM_vs_LaSSIM.png)
 
-![Result image](Results/isic_SSIM_vs_LaSSIM.png)
+![Result image](resources/isic_SSIM_vs_LaSSIM.png)
 
-![Result image](Results/camelyon_SSIM_vs_LaSSIM.png)
+![Result image](resources/camelyon_SSIM_vs_LaSSIM.png)
+
+## How to utilize LaSSIM
+Follow the below code block. 
+The difference between SSIM scores should be much smaller compared to LaSSIM.
+```python
+from lassim import LaSSIM, SSIM
+
+# read images
+img_ori_path = "resources/image_original.png"
+img_blur_path = "resources/image_blur.png"
+img_elt_blur_path = "resources/image_elastic_blur.png"
+
+# original image
+img_ori = cv2.imread(img_ori_path, -1)
+# + blur
+img_blur = cv2.imread(img_blur_path, -1)
+# + elastic + blur
+img_elt_blur = cv2.imread(img_elt_blur_path, -1)
+
+# SSIM in Laplace Pyramid space
+lassim_blur_ori = LaSSIM(img_inp=img_blur, img_ref=img_ori)
+lassim_elt_blur_ori = LaSSIM(img_inp=img_elt_blur, img_ref=img_ori)
+
+print(f"LaSSIM (blur vs original): {lassim_blur_ori}")
+print(f"LaSSIM (elastic+blur vs original): {lassim_elt_blur_ori}\n")
+
+# SSIM in pixel space
+ssim_blur_ori = SSIM(img_inp=img_blur, img_ref=img_ori)
+ssim_elt_blur_ori = SSIM(img_inp=img_elt_blur, img_ref=img_ori)
+
+print(f"SSIM (blur vs original): {ssim_blur_ori}")
+print(f"SSIM (elastic+blur vs original): {ssim_elt_blur_ori}")
+```
